@@ -1,6 +1,7 @@
 const cells = document.querySelectorAll(".cell");
 const label = document.querySelector(".label");
 const btn = document.querySelector(".btn");
+const rem = document.querySelector(".remaining");
 var labels = [];
 var attempt = 1;
 var currentCell = 0;
@@ -8,6 +9,8 @@ var word = words[Math.floor(Math.random() * words.length)].toUpperCase();
 var inGame = true;
 var correctColour = "limegreen";
 var halfCorrectColour = "yellow";
+var remaining = 'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z';
+rem.textContent = remaining;
 
 btn.addEventListener('click', function () {
     location.reload();
@@ -74,12 +77,15 @@ function checkWord() {
         let cellNumber = currentCell - (5 - i);
         if (cells[cellNumber].style.background != correctColour && cells[cellNumber].style.background != halfCorrectColour) {
             cells[cellNumber].style.background = "grey";
+            console.log(cells[cellNumber].textContent);
+            remaining = remaining.replace(cells[cellNumber].textContent, '');
+            rem.textContent = remaining;
         }
     }
     if (word1 == '     ') {
         label.textContent = "You Won!";
         inGame = false;
-    } else if (attempt == 7) {
+    } else if (attempt == 6) {
         label.textContent = "You Lost, the word was: " + word;
         inGame = false;
     }
