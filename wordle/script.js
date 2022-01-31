@@ -9,7 +9,6 @@ var labels = [];
 var attempt = 1;
 var currentCell = 0;
 var word = words[Math.floor(Math.random() * words.length)].toUpperCase();
-console.log(word);
 var inGame = true;
 var correctColour = "#6AAA64";
 var halfCorrectColour = "#C9B458";
@@ -67,17 +66,13 @@ function checkWord() {
         let cellNumber = currentCell - (5 - i);
         let guessLetter = cells[cellNumber].textContent;
         let solutionLetter = word1[i];
-        console.log(cellNumber + guessLetter + solutionLetter);
         if (guessLetter == solutionLetter) {
             word1 = word1.substring(0, i) + ' ' + word1.substring(i + 1);
-            console.log(word1);
             cells[cellNumber].style.background = correctColour;
         } else if (word1.indexOf(guessLetter) != -1) {
-            word1 = word1.substring(0, i) + '.' + word1.substring(i + 1);
-            console.log(word1);
+            word1 = word1.replace(guessLetter, '.');
             cells[cellNumber].style.background = halfCorrectColour;
         } else {
-            console.log("incorrect " + guessLetter);
             cells[cellNumber].style.background = incorrectColour;
             remaining = remaining.replace(cells[cellNumber].textContent, '');
             rem.textContent = remaining;
