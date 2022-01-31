@@ -5,7 +5,7 @@
 }
 
 :root {
-    --cell-size: 50px;
+    --cell-size: 60px;
     --mark-size: cal(var(--cell-size) * 0.9)
 }
 
@@ -26,7 +26,7 @@ body {
     font-weight: bold;
     font-size: 1.5rem;
     text-align: center;
-    padding: 90px 0 30px;
+    padding: 50px 0 30px;
 }
 
 h3 {
@@ -50,6 +50,7 @@ h3 {
 }
 
 .cell {
+    color: black;
     width: var(--cell-size);
     height: var(--cell-size);
     font-weight: bolder;
@@ -57,7 +58,7 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    border: 2px solid #d3d6da;
     font-size: 5rem;
 }
 
@@ -73,4 +74,9 @@ h3 {
     border-radius: 8px;
     font-weight: bold;
     width: 200px;
+}
+
+button:hover {
+    color: black;
+    cursor: pointer;
 }

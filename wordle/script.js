@@ -2,10 +2,14 @@ const cells = document.querySelectorAll(".cell");
 const label = document.querySelector(".label");
 const btn = document.querySelector(".btn");
 const rem = document.querySelector(".remaining");
+const buzzer = document.getElementById("buzzer");
+const winner = document.getElementById("winner");
+const type = document.getElementById("type");
 var labels = [];
 var attempt = 1;
 var currentCell = 0;
 var word = words[Math.floor(Math.random() * words.length)].toUpperCase();
+console.log(word);
 var inGame = true;
 var correctColour = "#6AAA64";
 var halfCorrectColour = "#C9B458";
@@ -25,7 +29,7 @@ document.addEventListener('keydown', (event) => {
             currentCell -= 1;
             label.textContent = '';
         } else if (event.code == "Enter" && currentCell == attempt * 5) {
-            
+            type.play();
             checkWord();
         } else if (currentCell + 1 <= attempt * 5 && currentCell + 1 > (attempt - 1) * 5) {
             
@@ -55,6 +59,7 @@ function checkWord() {
     }
     if (!words.includes(guess.toLowerCase())) {
         label.textContent = "Not a valid word";
+        buzzer.play();
         return;
     }
     let word1 = word;
@@ -81,6 +86,7 @@ function checkWord() {
 
     if (word1 == '     ') {
         label.textContent = "You Won!";
+        winner.play();
         inGame = false;
     } else if (attempt == 6) {
         label.textContent = "You Lost, the word was: " + word;
