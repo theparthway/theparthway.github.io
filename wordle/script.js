@@ -81,7 +81,7 @@ function checkWord() {
         label.textContent = "You Won!";
         inGame = false;
     } else if (attempt == 7) {
-        label.textContent = "You Lost";
+        label.textContent = "You Lost, the word was: " + word;
         inGame = false;
     }
     attempt += 1;
