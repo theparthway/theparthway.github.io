@@ -7,8 +7,9 @@ var attempt = 1;
 var currentCell = 0;
 var word = words[Math.floor(Math.random() * words.length)].toUpperCase();
 var inGame = true;
-var correctColour = "limegreen";
-var halfCorrectColour = "yellow";
+var correctColour = "#6AAA64";
+var halfCorrectColour = "#C9B458";
+var incorrectColour = "#787C7E";
 var remaining = 'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z';
 rem.textContent = remaining;
 
@@ -57,31 +58,27 @@ function checkWord() {
         return;
     }
     let word1 = word;
-    for(let i=0;i<=4;i++) {
+    for (let i=0;i<=4;i++) {
         let cellNumber = currentCell - (5 - i);
-        if (cells[cellNumber].textContent == word1[i]) {
+        let guessLetter = cells[cellNumber].textContent;
+        let solutionLetter = word1[i];
+        console.log(cellNumber + guessLetter + solutionLetter);
+        if (guessLetter == solutionLetter) {
             word1 = word1.substring(0, i) + ' ' + word1.substring(i + 1);
+            console.log(word1);
             cells[cellNumber].style.background = correctColour;
-        }
-    }
-    for (let i=0;i<=4;i++) {
-        let cellNumber = currentCell - (5 - i);
-        for(let j=0;j<=4;j++) {
-            if (word1[j] == cells[cellNumber].textContent) {
-                cells[cellNumber].style.background = halfCorrectColour;
-                word1 = word1.substring(0, j) + '.' + word1.substring(j + 1);
-            }
-        }
-    }
-    for (let i=0;i<=4;i++) {
-        let cellNumber = currentCell - (5 - i);
-        if (cells[cellNumber].style.background != correctColour && cells[cellNumber].style.background != halfCorrectColour) {
-            cells[cellNumber].style.background = "grey";
-            console.log(cells[cellNumber].textContent);
+        } else if (word1.indexOf(guessLetter) != -1) {
+            word1 = word1.substring(0, i) + '.' + word1.substring(i + 1);
+            console.log(word1);
+            cells[cellNumber].style.background = halfCorrectColour;
+        } else {
+            console.log("incorrect " + guessLetter);
+            cells[cellNumber].style.background = incorrectColour;
             remaining = remaining.replace(cells[cellNumber].textContent, '');
             rem.textContent = remaining;
         }
     }
+
     if (word1 == '     ') {
         label.textContent = "You Won!";
         inGame = false;
@@ -89,5 +86,6 @@ function checkWord() {
         label.textContent = "You Lost, the word was: " + word;
         inGame = false;
     }
+
     attempt += 1;
 }
