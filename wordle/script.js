@@ -5,7 +5,6 @@ var labels = [];
 var attempt = 1;
 var currentCell = 0;
 var word = words[Math.floor(Math.random() * words.length)].toUpperCase();
-console.log(word);
 var inGame = true;
 var correctColour = "limegreen";
 var halfCorrectColour = "yellow";
