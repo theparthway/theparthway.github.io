@@ -65,8 +65,8 @@ textarea {
   resize: none; }
 
 .logo {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
 }
 
 @media only screen and (max-width: 600px) {
