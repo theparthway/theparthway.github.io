@@ -7,6 +7,7 @@ const headerHamMenuCloseBtn = document.querySelector(
 )
 const headerSmallMenuLinks = document.querySelectorAll('.header__sm-menu-link')
 const hero = document.querySelector('.home-hero');
+const text = document.querySelector('.text-primary');
 
 fetch('https://api.nasa.gov/planetary/apod?api_key=nuTfpJELDwGbmcNupmJ3aD9FoCm17voCiOO8488Q').then(function(response) {
   return response.json();
@@ -19,6 +20,16 @@ fetch('https://api.nasa.gov/planetary/apod?api_key=nuTfpJELDwGbmcNupmJ3aD9FoCm17
   }
 }).catch(function() {
   hero.style.backgroundImage = 'linear-gradient(to right, rgba(0, 98, 185, 0.8), rgba(0, 98, 185, 0.8)), url(../../assets/svg/common-bg.svg)';
+  console.log("Booo");
+});
+
+fetch('https://api.kanye.rest/').then(function(response) {
+  return response.json();
+}).then(function(data) {
+    text.innerHTML = data.quote;
+    console.log(data);
+}).catch(function() {
+  text.innerHTML = "Insert Kanye quote";
   console.log("Booo");
 });
 
