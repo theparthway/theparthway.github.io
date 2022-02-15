@@ -26,7 +26,7 @@ fetch('https://api.nasa.gov/planetary/apod?api_key=nuTfpJELDwGbmcNupmJ3aD9FoCm17
 fetch('https://api.kanye.rest/').then(function(response) {
   return response.json();
 }).then(function(data) {
-    text.innerHTML = data.quote;
+    text.innerHTML = data.quote + " ~ Kanye";
     console.log(data);
 }).catch(function() {
   text.innerHTML = "Insert Kanye quote";
