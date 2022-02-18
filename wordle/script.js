@@ -5,13 +5,16 @@ const rem = document.querySelector(".remaining");
 const buzzer = document.getElementById("buzzer");
 const winner = document.getElementById("winner");
 const type = document.getElementById("type");
+const blind = document.getElementById("color-blind");
+const body = document.getElementsByTagName("BODY")[0];
 var labels = [];
 var attempt = 1;
 var currentCell = 0;
 var word = words[Math.floor(Math.random() * words.length)].toUpperCase();
 var inGame = true;
-var correctColour = "#6AAA64";
-var halfCorrectColour = "#C9B458";
+var correctColour = "rgb(106, 170, 100)";
+var halfCorrectColour = "rgb(201, 180, 88)";
+
 var incorrectColour = "#787C7E";
 var remaining = 'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z';
 rem.textContent = remaining;
@@ -89,4 +92,29 @@ function checkWord() {
     }
 
     attempt += 1;
+}
+
+function blindMode(checkbox) {
+    if (checkbox.checked) {
+        correctColour = "rgb(255, 80, 80)";
+        halfCorrectColour = "rgb(0, 0, 153)";
+        body.style.background = "black";
+        cells.forEach(cell => {
+            console.log(cell.style.background);
+            if (cell.style.background == "rgb(106, 170, 100)") {
+                console.log("changed to dark");
+                cell.style.background = correctColour;
+            } else if (cell.style.background == "rgb(201, 180, 88)") {
+                cell.style.background = halfCorrectColour;
+            }
+        });
+    } else {
+        correctColour = "rgb(106, 170, 100)";
+        halfCorrectColour = "rgb(201, 180, 88)";
+        body.style.backgroundImage = "linear-gradient(315deg, #29539b 0%, #1e3b70 74%)";
+        cells.forEach(cell => {
+            if (cell.style.background == "rgb(255, 80, 80)") cell.style.background = correctColour;
+            else if (cell.style.background == "rgb(0, 0, 153)") cell.style.background = halfCorrectColour;
+        });
+    }
 }

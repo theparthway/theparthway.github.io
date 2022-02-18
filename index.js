@@ -33,7 +33,6 @@ fetch('https://api.kanye.rest/').then(function(response) {
   console.log("Booo");
 });
 
-hero.style.backgroundImage = 'url(./selfie.jpeg)';
 
 hamMenuBtn.addEventListener('click', () => {
   if (smallMenu.classList.contains('header__sm-menu--active')) {
