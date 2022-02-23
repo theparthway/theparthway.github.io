@@ -17,7 +17,7 @@ let  numberOfWords = 0;
 let mistakes = 0;
 let numberOfChars = 0;
 let text = "";
-for (let i=0;i<10;i++) {
+for (let i=0;i<20;i++) {
     text += words[Math.floor(Math.random() * words.length)];
     text += " ";
     numberOfWords++;
@@ -68,7 +68,7 @@ const keyListener = document.addEventListener('keydown', ({ key, keyCode }) =>{
         const wpm = wps * 60;
         console.log(mistakes);
         console.log(numberOfChars);
-        stats.innerText = `WPM: ${wpm}\nAccuracy: ${100 - (mistakes / numberOfChars)} %`;
+        stats.innerText = `WPM: ${parseInt(wpm)}\nAccuracy: ${parseInt(100 - (mistakes / numberOfChars))} % \n Try Again ↩`;
         stats.style.color = "white";
         stats.style.paddingTop = "5%";
         stats.style.fontSize = "x-large";
