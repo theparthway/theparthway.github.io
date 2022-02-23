@@ -37,7 +37,7 @@ body {
     font-size: x-large;
     position: absolute;
     top: 25%;
-    left: 34%;
+    left: 32%;
     border-radius: 10px;
     text-align: center;
     width: 35%;
@@ -45,19 +45,19 @@ body {
 
 .btn {
     position: absolute;
-    left: 47%;
+    left: 44.5%;
     top: 60%;
     padding: 5px 10px;
     text-align: center;
 }
 
 .btn button {
-    font-size: large;
+    font-size:small;
     width: 150px;
     height: 45px;
-    background-color: #343434;
+    background-color: black;
     color: white;
-    border-radius: 5px;
+    border: 1px solid white;
 }
 
 .btn button:hover {

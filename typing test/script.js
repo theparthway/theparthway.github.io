@@ -14,6 +14,8 @@ const btn = document.getElementById("btn");
 
 // getData();
 let  numberOfWords = 0;
+let mistakes = 0;
+let numberOfChars = 0;
 let text = "";
 for (let i=0;i<10;i++) {
     text += words[Math.floor(Math.random() * words.length)];
@@ -27,6 +29,7 @@ const characters = text.split('').map(char => {
     const span = document.createElement("span");
     span.innerText = char;
     typingDiv.appendChild(span);
+    numberOfChars++;
     return span;
 });
 
@@ -37,12 +40,13 @@ cursorCharacter.classList.add('cursor');
 let startTime = null;
 let endTime = null;
 
-const keyListener = document.addEventListener('keydown', ({ key }) =>{
+const keyListener = document.addEventListener('keydown', ({ key, keyCode }) =>{
     console.log(key);
     if (key == "Enter") {
         window.location.reload();
         return;
     }
+    if (!((keyCode >= 65 && keyCode <= 90) || (keyCode >= 97 && keyCode <= 122) || keyCode == 32 || keyCode == 45)) return;
     if (!startTime) {
         startTime = new Date();
     }
@@ -51,6 +55,9 @@ const keyListener = document.addEventListener('keydown', ({ key }) =>{
         cursorCharacter.classList.remove('cursor');
         cursorCharacter.classList.add('done');
         cursorCharacter = characters[++cursorIndex];
+    } else {
+        cursorCharacter.style.color = "red";
+        mistakes++;
     }
     if (cursorIndex >= characters.length) {
         endTime = new Date();
@@ -59,8 +66,9 @@ const keyListener = document.addEventListener('keydown', ({ key }) =>{
         console.log("number of words" + numberOfWords);
         const wps = numberOfWords / seconds;
         const wpm = wps * 60;
-        console.log(wpm);
-        stats.innerText = `WPM: ${wpm}`;
+        console.log(mistakes);
+        console.log(numberOfChars);
+        stats.innerText = `WPM: ${wpm}\nAccuracy: ${100 - (mistakes / numberOfChars)} %`;
         stats.style.color = "white";
         stats.style.paddingTop = "5%";
         stats.style.fontSize = "x-large";
