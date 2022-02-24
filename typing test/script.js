@@ -10,6 +10,12 @@ let mistakes = 0;
 let numberOfChars = 0;
 let text = "";
 
+for (let i=0;i<10;i++) {
+    text += words[Math.floor(Math.random() * words.length)];
+    text += " ";
+}
+
+text = text.slice(0, -1);
 
 async function getData() {
     await fetch('https://random-word-api.herokuapp.com/word?number=10')
