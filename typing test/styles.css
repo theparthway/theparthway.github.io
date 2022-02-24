@@ -45,7 +45,7 @@ label {
     color: white;
     font-size: x-large;
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: 32%;
     border-radius: 10px;
     text-align: center;
@@ -72,9 +72,4 @@ label {
 .btn button:hover {
     background-color: white;
     color: black;
-}
-
-button > p {
-    display: inline;
-    font-size: large;
 }
