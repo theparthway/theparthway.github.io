@@ -19,6 +19,15 @@ body {
     color: rgba(128, 128, 128, 0.753);
 }
 
+input {
+    cursor: pointer;
+}
+
+label {
+    color: white;
+    cursor: pointer;
+}
+
 .container {
     position: relative;
     height: 100vh;

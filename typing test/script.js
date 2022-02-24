@@ -1,29 +1,24 @@
 const typingDiv = document.getElementById("typing");
 const stats = document.getElementById("stats");
 const btn = document.getElementById("btn");
-// let words;
+const hardMode = document.getElementById("hardMode");
+const liveWpm = document.getElementById("liveWpm");
+const liveMistakes = document.getElementById("liveMistakes");
 
-// async function getData() {
-//     await fetch('https://random-word-api.herokuapp.com/word?number=10')
-//   .then(response => response.json())
-//   .then(data => {
-//       words = data.join(" ")
-//       console.log(words);
-//   });
-// }
-
-// getData();
 let  numberOfWords = 0;
 let mistakes = 0;
 let numberOfChars = 0;
 let text = "";
-for (let i=0;i<20;i++) {
-    text += words[Math.floor(Math.random() * words.length)];
-    text += " ";
-    numberOfWords++;
 
+
+async function getData() {
+    await fetch('https://random-word-api.herokuapp.com/word?number=10')
+.then(response => response.json())
+.then(data => {
+    text = data.join(" ")
+    console.log(words);
+});
 }
-text = text.slice(0, -1);
 
 const characters = text.split('').map(char => {
     const span = document.createElement("span");
@@ -39,6 +34,7 @@ cursorCharacter.classList.add('cursor');
 
 let startTime = null;
 let endTime = null;
+
 
 const keyListener = document.addEventListener('keydown', ({ key, keyCode }) =>{
     console.log(key);
@@ -68,7 +64,7 @@ const keyListener = document.addEventListener('keydown', ({ key, keyCode }) =>{
         const wpm = wps * 60;
         console.log(mistakes);
         console.log(numberOfChars);
-        stats.innerText = `WPM: ${parseInt(wpm)}\nAccuracy: ${parseInt(100 - (mistakes / numberOfChars))} % \n Try Again ↩`;
+        stats.innerText = `WPM: ${wpm.toFixed(2)}\nAccuracy: ${(100 - (mistakes / numberOfChars)).toFixed(2)} % \n Try Again ↩`;
         stats.style.color = "white";
         stats.style.paddingTop = "5%";
         stats.style.fontSize = "x-large";
