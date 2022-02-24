@@ -9,13 +9,6 @@ let  numberOfWords = 0;
 let mistakes = 0;
 let numberOfChars = 0;
 let text = "";
-<<<<<<< HEAD
-=======
-for (let i=0;i<10;i++) {
-    text += words[Math.floor(Math.random() * words.length)];
-    text += " ";
-    numberOfWords++;
->>>>>>> parent of 37d232a (Bug fixes)
 
 
 async function getData() {
@@ -71,11 +64,7 @@ const keyListener = document.addEventListener('keydown', ({ key, keyCode }) =>{
         const wpm = wps * 60;
         console.log(mistakes);
         console.log(numberOfChars);
-<<<<<<< HEAD
         stats.innerText = `WPM: ${wpm.toFixed(2)}\nAccuracy: ${(100 - (mistakes / numberOfChars)).toFixed(2)} % \n Try Again ↩`;
-=======
-        stats.innerText = `WPM: ${wpm}\nAccuracy: ${100 - (mistakes / numberOfChars)} %`;
->>>>>>> parent of 37d232a (Bug fixes)
         stats.style.color = "white";
         stats.style.paddingTop = "5%";
         stats.style.fontSize = "x-large";
