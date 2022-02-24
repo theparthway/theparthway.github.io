@@ -5,12 +5,12 @@ const hardMode = document.getElementById("hardMode");
 const liveWpm = document.getElementById("liveWpm");
 const liveMistakes = document.getElementById("liveMistakes");
 
-let  numberOfWords = 0;
+let  numberOfWords = 10;
 let mistakes = 0;
 let numberOfChars = 0;
 let text = "";
 
-for (let i=0;i<10;i++) {
+for (let i=0;i<numberOfWords;i++) {
     text += words[Math.floor(Math.random() * words.length)];
     text += " ";
 }
@@ -22,7 +22,6 @@ async function getData() {
 .then(response => response.json())
 .then(data => {
     text = data.join(" ")
-    console.log(words);
 });
 }
 
@@ -43,12 +42,11 @@ let endTime = null;
 
 
 const keyListener = document.addEventListener('keydown', ({ key, keyCode }) =>{
-    console.log(key);
     if (key == "Enter") {
         window.location.reload();
         return;
     }
-    if (!((keyCode >= 65 && keyCode <= 90) || (keyCode >= 97 && keyCode <= 122) || keyCode == 32 || keyCode == 45)) return;
+    if (!((keyCode >= 65 && keyCode <= 90) || (keyCode >= 97 && keyCode <= 122) || keyCode == 32 || key == "-")) return;
     if (!startTime) {
         startTime = new Date();
     }
@@ -66,10 +64,9 @@ const keyListener = document.addEventListener('keydown', ({ key, keyCode }) =>{
         const delta = endTime - startTime;
         const seconds = delta / 1000;
         console.log("number of words" + numberOfWords);
+        console.log("seconds" + seconds);
         const wps = numberOfWords / seconds;
         const wpm = wps * 60;
-        console.log(mistakes);
-        console.log(numberOfChars);
         stats.innerText = `WPM: ${wpm.toFixed(2)}\nAccuracy: ${(100 - (mistakes / numberOfChars)).toFixed(2)} % \n Try Again ↩`;
         stats.style.color = "white";
         stats.style.paddingTop = "5%";
