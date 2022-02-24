@@ -2,6 +2,7 @@ const tb = document.querySelector('input[type="text"]');
 const ul = document.querySelector('.list');
 const label = document.querySelector('.error');
 
+tb.focus();
 
 tb.addEventListener('keyup', function(event) {
     label.textContent = "";
