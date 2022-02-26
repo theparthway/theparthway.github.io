@@ -22,7 +22,7 @@ function setup() {
 }
 
 function draw() {
-  background(51);
+  background(0);
   angle = angleSlider.value();
   angleSlider.position(20, 70);
   angleSlider.style('width', `${windowWidth / 3 - 40}px`);
@@ -47,12 +47,16 @@ function draw() {
   text("FRACTAL TREE", windowWidth / 3 + windowWidth / 9, 35);
   textSize(20);
   fill(240);
-  text("Angle: " + (PI / angle + 0.02).toFixed(2) + " π", 20, 65);
+  text("Angle: " + angle + "°", 20, 65);
   text("Trunk: " + trunk + " pixels", windowWidth / 3, 65);
   text("Thickness: " + thick + " pixels", windowWidth / 3 * 2, 65);
+  fill(255, 0, 0);
   text("Red: " + red, 20, 115);
+  fill(0, 255, 0);
   text("Green: " + green, windowWidth / 3, 115);
+  fill(173, 216, 255);
   text("Blue: " + blue, windowWidth / 3 * 2, 115);
+  fill(255);
   stroke(red, green, blue);
   strokeWeight(thick);
   translate(width / 2, height);
