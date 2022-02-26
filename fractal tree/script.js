@@ -41,11 +41,11 @@ function draw() {
   blue = blueSlider.value();
   blueSlider.position(windowWidth / 3 * 2, 120);
   blueSlider.style('width', `${windowWidth / 3 - 40}px`);
-  textSize(32);
+  textSize(windowWidth / 60);
   noStroke();
   textFont('Helvetica');
   text("FRACTAL TREE", windowWidth / 3 + windowWidth / 9, 35);
-  textSize(20);
+  textSize(windowWidth / 70);
   fill(240);
   text("Angle: " + angle + "°", 20, 65);
   text("Trunk: " + trunk + " pixels", windowWidth / 3, 65);
