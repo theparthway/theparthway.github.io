@@ -5,7 +5,7 @@ const hardMode = document.getElementById("hardMode");
 const liveWpm = document.getElementById("liveWpm");
 const liveMistakes = document.getElementById("liveMistakes");
 
-let  numberOfWords = 10;
+let  numberOfWords = 20;
 let mistakes = 0;
 let numberOfChars = 0;
 let text = "";

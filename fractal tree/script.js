@@ -44,7 +44,7 @@ function draw() {
   textSize(32);
   noStroke();
   textFont('Helvetica');
-  text("FRACTAL TREE", windowWidth / 3 + 40, 35);
+  text("FRACTAL TREE", windowWidth / 3 + windowWidth / 9, 35);
   textSize(20);
   fill(240);
   text("Angle: " + (PI / angle + 0.02).toFixed(2) + " π", 20, 65);
