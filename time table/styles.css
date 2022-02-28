@@ -12,9 +12,10 @@ body {
 .container {
     display: grid;
     grid-template-columns: 33vw 33vw 33vw;
-    height: 80vh;
+    height: 85vh;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.582);
+    background-color: darkblue;
+    border-radius: 40px;
 }
 
 .container > div {
@@ -27,17 +28,14 @@ body {
     flex-direction: column;
     text-align: center;
     margin-top: 5vh;
-}
-
-.input2 {
-    margin-top: 2vh;
     margin-bottom: 5vh;
 }
 
 @media (max-width: 800px) {
     .container {
         display: grid;
-        grid-template-rows: 20vh 20vh 20vh;
+        grid-template-columns: 100vw;
+        grid-template-rows: 28vh 28vh 28vh;
     }
     .container > div {
         font-size: large;
