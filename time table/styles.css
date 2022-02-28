@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: beige;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 33vw 33vw 33vw;
+    height: 80vh;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.644);
+}
+
+.container > div {
+    text-align: center;
+    font-size: x-large;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 5vh;
+}
+
+.input2 {
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+    .container > div {
+        font-size: large;
+    }
+}
