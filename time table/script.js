@@ -29,35 +29,40 @@ var currentOffset = currentTime.getTimezoneOffset();
 var ISTOffset = 330;   // IST offset UTC +5:30 
 
 var ist = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);
+// let hour = ist.getHours();
+// let minute = ist.getMinutes();
 
-if (ist.getMinutes() >= 30) {
-    col1.textContent = tt[ist.getDay()][hours.indexOf(ist.getHours())];
-    col2.textContent = tt[ist.getDay()][hours.indexOf(ist.getHours()) + 1];
-    col3.textContent = tt[ist.getDay()][hours.indexOf(ist.getHours()) + 2];
-} else if (ist.getMinutes() < 30 && ist.getHours() == 8) {
+let hour = 9;
+let minute = 45;
+
+if (minute >= 30) {
+    col1.textContent = tt[ist.getDay()][hours.indexOf(hour)];
+    col2.textContent = "NOW: \n tt[ist.getDay()][hours.indexOf(hour) + 1]";
+    col3.textContent = "NOW: \n tt[ist.getDay()][hours.indexOf(hour) + 2]";
+} else if (minute < 30 && hour == 8) {
     col2.textContent = "Good morning";
 } else {
-    col1.textContent = tt[ist.getDay()][hours.indexOf(ist.getHours()) - 1];
-    col2.textContent = tt[ist.getDay()][hours.indexOf(ist.getHours())];
-    col3.textContent = tt[ist.getDay()][hours.indexOf(ist.getHours()) + 1];
+    col1.textContent = tt[ist.getDay()][hours.indexOf(hour) - 1];
+    col2.textContent = tt[ist.getDay()][hours.indexOf(hour)];
+    col3.textContent = tt[ist.getDay()][hours.indexOf(hour) + 1];
 }
 
 for (let i=0;i<radios.length;i++) {
     radios[i].addEventListener('change', function() {
         // day and section
         // time
-        if (ist.getist.getMinutes()() >= 30) {
+        if (ist.getminute() >= 30) {
             console.log("greater than 30");
-            col1.textContent = tt[ist.getDay() - 1 + i][hours.indexOf(ist.getHours())];
-            col2.textContent = tt[ist.getDay() - 1 + i][hours.indexOf(ist.getHours()) + 1];
-            col3.textContent = tt[ist.getDay() - 1 + i][hours.indexOf(ist.getHours()) + 2];
-        } else if (ist.getist.getMinutes()() < 30 && hour == 8) {
+            col1.textContent = tt[ist.getDay() - 1 + i][hours.indexOf(hour)];
+            col2.textContent = "NOW: \n tt[ist.getDay() - 1 + i][hours.indexOf(hour) + 1]";
+            col3.textContent = tt[ist.getDay() - 1 + i][hours.indexOf(hour) + 2];
+        } else if (ist.getminute() < 30 && hour == 8) {
             col2.textContent = "Good morning";
         } else {
             console.log("less than 30");
-            col1.textContent = tt[ist.getDay() - 1 + i][hours.indexOf(ist.getHours()) - 1];
-            col2.textContent = tt[ist.getDay() - 1 + i][hours.indexOf(ist.getHours())];
-            col3.textContent = tt[ist.getDay() - 1 + i][hours.indexOf(ist.getHours()) + 1];
+            col1.textContent = tt[ist.getDay() - 1 + i][hours.indexOf(hour) - 1];
+            col2.textContent = "NOW: \n tt[ist.getDay() - 1 + i][hours.indexOf(hour)]";
+            col3.textContent = tt[ist.getDay() - 1 + i][hours.indexOf(hour) + 1];
         }
     })
 }

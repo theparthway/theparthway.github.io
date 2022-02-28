@@ -5,7 +5,8 @@
 
 body {
     margin: 0;
-    background-color: beige;
+    background-color: black;
+    color: white;
 }
 
 .container {
@@ -13,7 +14,7 @@ body {
     grid-template-columns: 33vw 33vw 33vw;
     height: 80vh;
     align-items: center;
-    background-color: rgba(128, 128, 128, 0.644);
+    background-color: rgba(0, 0, 0, 0.582);
 }
 
 .container > div {
@@ -35,7 +36,8 @@ body {
 
 @media (max-width: 800px) {
     .container {
-        flex-direction: column;
+        display: grid;
+        grid-template-rows: 20vh 20vh 20vh;
     }
     .container > div {
         font-size: large;
