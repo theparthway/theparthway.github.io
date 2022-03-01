@@ -19,7 +19,6 @@ const col3 = document.querySelector(".col3");
 const now = document.querySelector('input[value="now"]');
 const full = document.querySelector('input[value="full"]');
 
-const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
 
 var currentTime = new Date();
@@ -34,35 +33,39 @@ var ist = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);
 
 let hour = ist.getHours();
 let minute = ist.getMinutes();
+let day = ist.getDay();
+console.log(hour);
+console.log(minute);
+console.log(day);
 
 if (minute >= 30) {
-    col1.textContent = "BEFORE: \n" + tt[ist.getDay()][hours.indexOf(hour)];
-    col2.textContent = "NOW: \n" + tt[ist.getDay()][hours.indexOf(hour) + 1];
-    col3.textContent = "NEXT: \n" + tt[ist.getDay()][hours.indexOf(hour) + 2];
+    col1.textContent = "BEFORE: \n" + tt[(day - 1) * 10 + 1][hours.indexOf(hour)];
+    col2.textContent = "NOW: \n" + tt[(day - 1) * 10 + 1][hours.indexOf(hour) + 1];
+    col3.textContent = "NEXT: \n" + tt[(day - 1) * 10 + 1][hours.indexOf(hour) + 2];
 } else if (minute < 30 && hour == 8) {
     col2.textContent = "Good morning";
 } else {
-    col1.textContent = "BEFORE: \n" + tt[ist.getDay()][hours.indexOf(hour) - 1];
-    col2.textContent = "NOW: \n" + tt[ist.getDay()][hours.indexOf(hour)];
-    col3.textContent = "NEXT: \n" + tt[ist.getDay()][hours.indexOf(hour) + 1];
+    col1.textContent = "BEFORE: \n" + tt[(day - 1) * 10 + 1][hours.indexOf(hour) - 1];
+    col2.textContent = "NOW: \n" + tt[(day - 1) * 10 + 1][hours.indexOf(hour)];
+    col3.textContent = "NEXT: \n" + tt[(day - 1) * 10 + 1][hours.indexOf(hour) + 1];
 }
 
 for (let i=0;i<radios.length;i++) {
     radios[i].addEventListener('change', function() {
         // day and section
         // time
-        if (ist.getminute() >= 30) {
+        if (minute >= 30) {
             console.log("greater than 30");
-            col1.textContent = "BEFORE: \n" + tt[ist.getDay() - 1 + i][hours.indexOf(hour)];
-            col2.textContent = "NOW: \n" + tt[ist.getDay() - 1 + i][hours.indexOf(hour) + 1];
-            col3.textContent = "NEXT: \n" + tt[ist.getDay() - 1 + i][hours.indexOf(hour) + 2];
-        } else if (ist.getminute() < 30 && hour == 8) {
+            col1.textContent = "BEFORE: \n" + tt[(day - 1) * 10 + i][hours.indexOf(hour)];
+            col2.textContent = "NOW: \n" + tt[(day - 1) * 10 + i][hours.indexOf(hour) + 1];
+            col3.textContent = "NEXT: \n" + tt[(day - 1) * 10 + i][hours.indexOf(hour) + 2];
+        } else if (minute < 30 && hour == 8) {
             col2.textContent = "Good morning";
         } else {
             console.log("less than 30");
-            col1.textContent = "BEFORE: \n" + tt[ist.getDay() - 1 + i][hours.indexOf(hour) - 1];
-            col2.textContent = "NOW: \n" + tt[ist.getDay() - 1 + i][hours.indexOf(hour)];
-            col3.textContent = "NEXT: \n" + tt[ist.getDay() - 1 + i][hours.indexOf(hour) + 1];
+            col1.textContent = "BEFORE: \n" + tt[(day - 1) * 10 + i][hours.indexOf(hour) - 1];
+            col2.textContent = "NOW: \n" + tt[(day - 1) * 10 + i][hours.indexOf(hour)];
+            col3.textContent = "NEXT: \n" + tt[(day - 1) * 10 + i][hours.indexOf(hour) + 1];
         }
     })
 }
