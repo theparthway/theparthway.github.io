@@ -5,8 +5,8 @@
 
 body {
     margin: 0;
-    background-color: black;
-    color: white;
+    background-color: #00203FFF;
+    color: #ADEFD1FF;
 }
 
 .container {
@@ -14,13 +14,15 @@ body {
     grid-template-columns: 33vw 33vw 33vw;
     height: 85vh;
     align-items: center;
-    background-color: darkblue;
+    background-color: #ADEFD1FF;
     border-radius: 40px;
 }
 
 .container > div {
     text-align: center;
     font-size: x-large;
+    color: #00203FFF;
+    font-weight: bold;
 }
 
 .input {
