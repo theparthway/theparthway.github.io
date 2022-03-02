@@ -39,34 +39,30 @@ console.log(hour);
 console.log(minute);
 console.log(day);
 
-if (minute >= 30) {
-    col1.textContent = "BEFORE: \n" + tt[(day - 1) * 10 + 1][hours.indexOf(hour)];
-    col2.textContent = "NOW: \n" + tt[(day - 1) * 10 + 1][hours.indexOf(hour) + 1];
-    col3.textContent = "NEXT: \n" + tt[(day - 1) * 10 + 1][hours.indexOf(hour) + 2];
-} else if (minute < 30 && hour == 8) {
-    col2.textContent = "Good morning";
-} else {
-    col1.textContent = "BEFORE: \n" + tt[(day - 1) * 10 + 1][hours.indexOf(hour) - 1];
-    col2.textContent = "NOW: \n" + tt[(day - 1) * 10 + 1][hours.indexOf(hour)];
-    col3.textContent = "NEXT: \n" + tt[(day - 1) * 10 + 1][hours.indexOf(hour) + 1];
+function setLabels(s) {
+    let secParam = (day - 1) * 10 + s;
+    let hourParam = hours.indexOf(hour);
+    if (minute >= 30) {
+        col1.textContent = timings[hourParam - 2] + " | \n" + tt[secParam][hourParam];
+        col2.textContent = timings[hourParam - 1] + " | \n" + tt[secParam][hourParam + 1];
+        col3.textContent = timings[hourParam] + " | \n" + tt[secParam][hourParam + 2];
+    } else if (minute < 30 && hour == 8) {
+        col1.textContent = "Good morning!";
+        col2.textContent = "Hope you have a nice day";
+        col3.textContent = timings[hourParam] + " | \n" + tt[secParam][hourParam + 1];
+    } else {
+        col1.textContent = timings[hourParam - 2] + " | \n" + tt[secParam][hourParam - 1];
+        col2.textContent = timings[hourParam - 1] + " | \n" + tt[secParam][hourParam];
+        col3.textContent = timings[hourParam] + " | \n" + tt[secParam][hourParam + 1];
+    }
 }
+
+setLabels(1);
 
 for (let i=0;i<radios.length;i++) {
     radios[i].addEventListener('change', function() {
         // day and section
         // time
-        if (minute >= 30) {
-            console.log("greater than 30");
-            col1.textContent = "BEFORE: \n" + tt[(day - 1) * 10 + i][hours.indexOf(hour)];
-            col2.textContent = "NOW: \n" + tt[(day - 1) * 10 + i][hours.indexOf(hour) + 1];
-            col3.textContent = "NEXT: \n" + tt[(day - 1) * 10 + i][hours.indexOf(hour) + 2];
-        } else if (minute < 30 && hour == 8) {
-            col2.textContent = "Good morning";
-        } else {
-            console.log("less than 30");
-            col1.textContent = "BEFORE: \n" + tt[(day - 1) * 10 + i][hours.indexOf(hour) - 1];
-            col2.textContent = "NOW: \n" + tt[(day - 1) * 10 + i][hours.indexOf(hour)];
-            col3.textContent = "NEXT: \n" + tt[(day - 1) * 10 + i][hours.indexOf(hour) + 1];
-        }
+        setLabels(i);
     })
 }
