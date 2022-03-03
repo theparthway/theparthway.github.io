@@ -52,7 +52,6 @@ function setLabels(s) {
         cols[i].textContent = timings[i] + " | " + tt[secParam][i + 1];
         if (hourParam > i) cols[i].style.color = "green";
     }
-    console.log(cols[hourParam]);
     cols[hourParam].style.color = "blue";
     cols[hourParam].textContent = "➙  " + cols[hourParam].textContent;
     // if (minute >= 30) {
