@@ -43,16 +43,17 @@ var ist = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);
 let hour = ist.getHours();
 let minute = ist.getMinutes();
 let day = ist.getDay();
-let url = new URL("https://www.theparthway.com/time%20table/index.html?sec=A2");
 
 function setLabels(s) {
     let secParam = (day - 1) * 10 + s;
     let hourParam = hours.indexOf(hour);
+    if (minute < 30) hourParam -= 1;
     for (let i=0;i<9;i++) {
         cols[i].textContent = timings[i] + " | " + tt[secParam][i + 1];
+        if (hourParam > i) cols[i].style.color = "green";
     }
-    if (minute < 30) hourParam -= 1;
-    cols[hourParam].style.color = "red";
+    console.log(cols[hourParam]);
+    cols[hourParam].style.color = "blue";
     cols[hourParam].textContent = "➙  " + cols[hourParam].textContent;
     // if (minute >= 30) {
     //     col1.textContent = timings[hourParam - 1] + " | \n" + tt[secParam][hourParam];
