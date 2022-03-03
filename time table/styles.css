@@ -20,9 +20,10 @@ body {
 
 .container > div {
     text-align: center;
-    font-size: x-large;
+    font-size: large;
     color: #00203FFF;
     font-weight: bold;
+    padding: 0px 2px;
 }
 
 .input {
@@ -37,9 +38,6 @@ body {
     .container {
         display: grid;
         grid-template-columns: 100vw;
-        grid-template-rows: 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw;
-    }
-    .container > div {
-        font-size: large;
+        grid-template-rows: 20vw 20vw 20vw 20vw 20vw 20vw 20vw 20vw 20vw;
     }
 }
