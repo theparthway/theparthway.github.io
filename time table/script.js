@@ -11,9 +11,17 @@ radios.push(document.querySelector('input[value="A8"]'));
 radios.push(document.querySelector('input[value="A9"]'));
 radios.push(document.querySelector('input[value="A10"]'));
 
-const col1 = document.querySelector(".col1");
-const col2 = document.querySelector(".col2");
-const col3 = document.querySelector(".col3");
+const cols = [];
+cols.push(document.querySelector(".col1"));
+cols.push(document.querySelector(".col2"));
+cols.push(document.querySelector(".col3"));
+cols.push(document.querySelector(".col4"));
+cols.push(document.querySelector(".col5"));
+cols.push(document.querySelector(".col6"));
+cols.push(document.querySelector(".col7"));
+cols.push(document.querySelector(".col8"));
+cols.push(document.querySelector(".col9"));
+
 
 
 const now = document.querySelector('input[value="now"]');
@@ -35,26 +43,30 @@ var ist = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);
 let hour = ist.getHours();
 let minute = ist.getMinutes();
 let day = ist.getDay();
-console.log(hour);
-console.log(minute);
-console.log(day);
+let url = new URL("https://www.theparthway.com/time%20table/index.html?sec=A2");
 
 function setLabels(s) {
     let secParam = (day - 1) * 10 + s;
     let hourParam = hours.indexOf(hour);
-    if (minute >= 30) {
-        col1.textContent = timings[hourParam - 2] + " | \n" + tt[secParam][hourParam];
-        col2.textContent = timings[hourParam - 1] + " | \n" + tt[secParam][hourParam + 1];
-        col3.textContent = timings[hourParam] + " | \n" + tt[secParam][hourParam + 2];
-    } else if (minute < 30 && hour == 8) {
-        col1.textContent = "Good morning!";
-        col2.textContent = "Hope you have a nice day";
-        col3.textContent = timings[hourParam] + " | \n" + tt[secParam][hourParam + 1];
-    } else {
-        col1.textContent = timings[hourParam - 2] + " | \n" + tt[secParam][hourParam - 1];
-        col2.textContent = timings[hourParam - 1] + " | \n" + tt[secParam][hourParam];
-        col3.textContent = timings[hourParam] + " | \n" + tt[secParam][hourParam + 1];
+    for (let i=0;i<9;i++) {
+        cols[i].textContent = timings[i] + " | " + tt[secParam][i + 1];
     }
+    console.log(hourParam);
+    cols[hourParam].style.color = "red";
+    cols[hourParam].textContent = "➙  " + cols[hourParam].textContent;
+    // if (minute >= 30) {
+    //     col1.textContent = timings[hourParam - 1] + " | \n" + tt[secParam][hourParam];
+    //     col2.textContent = timings[hourParam] + " | \n" + tt[secParam][hourParam + 1];
+    //     col3.textContent = timings[hourParam + 1] + " | \n" + tt[secParam][hourParam + 2];
+    // } else if (minute < 30 && hour == 8) {
+    //     col1.textContent = "Good morning!";
+    //     col2.textContent = "Hope you have a nice day";
+    //     col3.textContent = timings[hourParam] + " | \n" + tt[secParam][hourParam + 1];
+    // } else {
+    //     col1.textContent = timings[hourParam - 1] + " | \n" + tt[secParam][hourParam - 1];
+    //     col2.textContent = timings[hourParam] + " | \n" + tt[secParam][hourParam];
+    //     col3.textContent = timings[hourParam + 1] + " | \n" + tt[secParam][hourParam + 1];
+    // }
 }
 
 setLabels(1);
