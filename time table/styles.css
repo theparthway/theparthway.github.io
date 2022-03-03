@@ -40,4 +40,7 @@ body {
         grid-template-columns: 100vw;
         grid-template-rows: 20vw 20vw 20vw 20vw 20vw 20vw 20vw 20vw 20vw;
     }
+    .container > div {
+        font-size: large;
+    }
 }
