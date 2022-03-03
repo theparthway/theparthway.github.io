@@ -51,7 +51,7 @@ function setLabels(s) {
     for (let i=0;i<9;i++) {
         cols[i].textContent = timings[i] + " | " + tt[secParam][i + 1];
     }
-    console.log(hourParam);
+    if (minute < 30) hourParam -= 1;
     cols[hourParam].style.color = "red";
     cols[hourParam].textContent = "➙  " + cols[hourParam].textContent;
     // if (minute >= 30) {

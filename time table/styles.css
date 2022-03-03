@@ -11,7 +11,7 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 20vw 20vw 20vw 20vw 20vw 20vw 20vw 20vw 20vw;
+    grid-template-columns: 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw;
     height: 85vh;
     align-items: center;
     background-color: #ADEFD1FF;
@@ -37,7 +37,7 @@ body {
     .container {
         display: grid;
         grid-template-columns: 100vw;
-        grid-template-rows: 20vw 20vw 20vw 20vw 20vw 20vw 20vw 20vw 20vw;
+        grid-template-rows: 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw;
     }
     .container > div {
         font-size: large;
