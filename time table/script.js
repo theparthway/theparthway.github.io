@@ -45,6 +45,10 @@ let minute = ist.getMinutes();
 let day = ist.getDay();
 
 function setLabels(s) {
+    if (day == 0) {
+        cols[5].textContent = "Sunday";
+        return;
+    }
     let secParam = (day - 1) * 10 + s;
     let hourParam = hours.indexOf(hour);
     if (minute < 30) hourParam -= 1;

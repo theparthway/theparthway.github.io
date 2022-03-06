@@ -10,9 +10,13 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw;
+    /* grid-template-columns: 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw; */
+
     height: 85vh;
-    align-items: center;
+    justify-content: center;
+    align-content: center;
+    grid-auto-flow: column;
+    gap: 4px;
     background-color: #00203FFF;
     border-radius: 40px;
 }
