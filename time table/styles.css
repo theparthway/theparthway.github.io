@@ -51,6 +51,10 @@ button {
     border-radius: 4px;
 }
 
+.day {
+    margin: 1px;
+}
+
 button:hover {
     background-color: white;
     color: #008CBA;
