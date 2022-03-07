@@ -12,7 +12,7 @@ body {
     display: grid;
     /* grid-template-columns: 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw; */
 
-    height: 85vh;
+    height: 80vh;
     justify-content: center;
     align-content: center;
     grid-auto-flow: column;
@@ -31,10 +31,29 @@ body {
 
 .input {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     text-align: center;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin: 3vh 0vh;
+}
+
+button {
+    padding: 1.5vh 3.5vh;
+    font-size: large;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    margin: 5px;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: white;
+    color: #008CBA;
+}
+
+.section {
+    text-align: center;
 }
 
 @media (max-width: 800px) {
