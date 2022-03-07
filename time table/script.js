@@ -12,17 +12,14 @@ radios.push(document.querySelector('input[value="A9"]'));
 radios.push(document.querySelector('input[value="A10"]'));
 
 const cols = [];
-cols.push(document.querySelector(".col1"));
-cols.push(document.querySelector(".col2"));
-cols.push(document.querySelector(".col3"));
-cols.push(document.querySelector(".col4"));
-cols.push(document.querySelector(".col5"));
-cols.push(document.querySelector(".col6"));
-cols.push(document.querySelector(".col7"));
-cols.push(document.querySelector(".col8"));
-cols.push(document.querySelector(".col9"));
 
+const container = document.querySelector(".container");
 
+for (let i=0;i<9;i++) {
+    let cell = document.createElement("div");
+    cols.push(cell);
+    container.appendChild(cell);
+}
 
 const now = document.querySelector('input[value="now"]');
 const full = document.querySelector('input[value="full"]');
