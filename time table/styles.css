@@ -15,6 +15,15 @@ body {
     background-color: var(--three);
 }
 
+.header {
+    font-family: 'Nova Mono', monospace;
+    background-color: white;
+    height: 3vh;
+    width: 100vw;
+    text-align: center;
+    font-size: large;
+}
+
 .container {
     display: grid;
 
