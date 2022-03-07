@@ -1,3 +1,10 @@
+:root {
+    --one: #313552;
+    --two: #B8405E;
+    --three: #2EB086;
+    --four: #EEE6CE;
+}
+
 * {
     box-sizing: border-box;
     font-family: Helvetica, sans-serif;
@@ -5,26 +12,25 @@
 
 body {
     margin: 0;
-    background-color: #ADEFD1FF;
+    background-color: var(--three);
 }
 
 .container {
     display: grid;
-    /* grid-template-columns: 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw 11vw; */
 
-    height: 80vh;
+    height: 75vh;
     justify-content: center;
     align-content: center;
     grid-auto-flow: column;
     gap: 4px;
-    background-color: #00203FFF;
+    background-color: var(--four);
     border-radius: 40px;
 }
 
 .container > div {
     text-align: center;
     font-size: x-large;
-    color: white;
+    color: var(--one);
     font-weight: bold;
     padding: 0px 2px;
 }
@@ -39,25 +45,22 @@ body {
 
 p {
     margin: 0;
+    font-size: x-large;
 }
 
 button {
     padding: 1.5vh 3.5vw;
     font-size: large;
-    background-color: #008CBA;
-    color: white;
+    background-color: var(--two);
+    color: var(--four);
     border: none;
     margin: 5px;
     border-radius: 4px;
 }
 
-.day {
-    margin: 1px;
-}
-
 button:hover {
-    background-color: white;
-    color: #008CBA;
+    background-color: var(--four);
+    color: var(--two);
 }
 
 .info {
@@ -82,5 +85,8 @@ button:hover {
         padding: 1vh 2vw;
         font-size: small;
         margin: 0.5vw;
+    }
+    .day {
+        margin: 0;
     }
 }
