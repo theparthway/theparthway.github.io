@@ -38,7 +38,7 @@ function setLabels() {
     }
     let secParam = (day - 1) * 10 + section;
     let hourParam = hours.indexOf(hour);
-    if (hourParam == -1) hourParam = 5;
+    if (hourParam == -1) hourParam = 8;
     if (minute < 30) hourParam -= 1;
     for (let i=0;i<9;i++) {
         cols[i].textContent = timings[i] + " | " + tt[secParam][i + 1];
