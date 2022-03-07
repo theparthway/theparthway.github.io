@@ -1,4 +1,5 @@
 tt = [
+  ["A1","CS 1201 L (E-LT3)","BI 1201 L  (for CSE)(ONLINE)  For CM first 7 weeks BI 1201 (ONLINE) and later 7 weeks CH1202+ CH1204 (E-CR16)","CS 1202 L (E-LT3)","MA 1202 (E-LT3)","LUNCH","CS 1201 T (E-CR10)","FREE","PH1202 P","PH1202 P"],
   ["A2","CS 1201 L (E-LT3)","BI 1201 L  (for CSE)(ONLINE)  For CM first 7 weeks BI 1201 (ONLINE) and later 7 weeks CH1202+ CH1204 (E-CR16)","CS 1202 L (E-LT3)","MA 1202 (E-LT3)","LUNCH","CS 1201 T (E-CR14)","FREE","FREE","FREE"],
   ["A3","CS 1201 L (E-LT3)","BI 1201 L  (for CSE)(ONLINE)  For CM first 7 weeks BI 1201 (ONLINE) and later 7 weeks CH1202+ CH1204 (E-CR16)","CS 1202 L (E-LT3)","MA 1202 (E-LT3)","LUNCH","CS 1201 T (E-CR16)","FREE","FREE","FREE"],
   ["A4","CS 1201 L (E-LT3)","BI 1201 L  (for CSE)(ONLINE)  For CM first 7 weeks BI 1201 (ONLINE) and later 7 weeks CH1202+ CH1204 (E-CR16)","CS 1202 L (E-LT3)","MA 1202 (E-LT3)","LUNCH","PH1202 P","PH1202 P","CS 1201 T (E-CR10)","FREE"],
