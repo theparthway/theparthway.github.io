@@ -37,8 +37,12 @@ body {
     margin: 3vh 0vh;
 }
 
+p {
+    margin: 0;
+}
+
 button {
-    padding: 1.5vh 3.5vh;
+    padding: 1.5vh 3.5vw;
     font-size: large;
     background-color: #008CBA;
     color: white;
@@ -59,10 +63,20 @@ button:hover {
 @media (max-width: 800px) {
     .container {
         display: grid;
-        grid-template-columns: 100vw;
-        grid-template-rows: 17vw 17vw 17vw 17vw 17vw 17vw 17vw 17vw 17vw;
+        justify-content: center;
+        align-content: center;
+        grid-auto-flow: row;
+        gap: 5vh;
     }
     .container > div {
         font-size: large;
+    }
+    .input {
+        margin: 1vh 0vh;
+    }
+    button {
+        padding: 1vh 2vw;
+        font-size: small;
+        margin: 0.5vw;
     }
 }
