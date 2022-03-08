@@ -38,15 +38,16 @@ function setLabels() {
     }
     let secParam = (day - 1) * 10 + section;
     let hourParam = hours.indexOf(hour);
-    if (hourParam == -1) hourParam = 8;
-    if (minute < 30) hourParam -= 1;
+    if (minute < 30 && hourParam != -1) hourParam -= 1;
     for (let i=0;i<9;i++) {
         cols[i].textContent = timings[i] + " | " + tt[secParam][i + 1];
         if (hourParam > i) cols[i].style.color = "#2EB086";
     }
     console.log(hourParam);
-    cols[hourParam].style.color = "#B8405E";
-    cols[hourParam].textContent = "➙  " + cols[hourParam].textContent;
+    if (hourParam != -1) {
+        cols[hourParam].style.color = "#B8405E";
+        cols[hourParam].textContent = "➙  " + cols[hourParam].textContent;
+    }
 }
 
 setLabels();
