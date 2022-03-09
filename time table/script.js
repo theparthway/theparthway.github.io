@@ -1,7 +1,6 @@
 const container = document.querySelector(".container");
 const sectionButtons = document.querySelector(".section");
 const dayButtons = document.querySelector(".day");
-const info = document.querySelector(".info");
 
 const cols = [];
 
@@ -43,38 +42,58 @@ function setLabels() {
         cols[i].textContent = timings[i] + " | " + tt[secParam][i + 1];
         if (hourParam > i) cols[i].style.color = "#2EB086";
     }
-    console.log(hourParam);
+    if ((hour == 17 && minute > 30) || (hour == 8 && minute < 30)) return;
     if (hourParam != -1) {
         cols[hourParam].style.color = "#B8405E";
         cols[hourParam].textContent = "➙  " + cols[hourParam].textContent;
     }
 }
 
-setLabels();
-info.textContent = "A2 | " + (days[day]).toUpperCase();
+function changeButton(old_button, new_button) {
+    // console.log("old: " + old_button.textContent);
+    // console.log("new: " + new_button.textContent);
+    if (old_button) {
+        old_button.style.color = "#EEE6CE";
+        old_button.style.backgroundColor = "#B8405E";
+    }
+    new_button.style.color = "#B8405E";
+    new_button.style.backgroundColor = "#EEE6CE";
+}
 
-const buttons = [];
+setLabels();
+
+// info.textContent = "A2 | " + (days[day]).toUpperCase();
+
+const section_buttons = [];
 for (let i=0;i<10;i++) {
     let button = document.createElement("button");
+    section_buttons.push(button);
     button.appendChild(document.createTextNode(tt[i][0]));
     sectionButtons.appendChild(button);
 
     button.addEventListener('click', function() {
-        info.textContent = tt[i][0] + " | " + (days[day]).toUpperCase();
+        // info.textContent = tt[i][0] + " | " + (days[day]).toUpperCase();
+        changeButton(section_buttons[section], button);
         section = i;
         setLabels();
     });
 
 }
 
+const day_buttons = [];
 for (let i=1;i<7;i++) {
     let button = document.createElement("button");
+    day_buttons.push(button);
     button.appendChild(document.createTextNode(days[i]));
     dayButtons.appendChild(button);
 
     button.addEventListener('click', function() {
+        changeButton(day_buttons[day - 1], button);
         day = i;
-        info.textContent = tt[section][0] + " | " + (days[day]).toUpperCase();
+        // info.textContent = tt[section][0] + " | " + (days[day]).toUpperCase();
         setLabels()
     })
 }
+
+changeButton(null, section_buttons[1]);
+changeButton(null, day_buttons[day - 1]);
