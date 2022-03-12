@@ -43,7 +43,7 @@ function setLabels() {
         if (hourParam > i) cols[i].style.color = "#2EB086";
     }
     if ((hour == 17 && minute > 30) || (hour == 8 && minute < 30)) return;
-    if (hourParam != -1) {
+    if (hourParam != -1 && day == ist.getDay()) {
         cols[hourParam].style.color = "#B8405E";
         cols[hourParam].textContent = "➙  " + cols[hourParam].textContent;
     }
