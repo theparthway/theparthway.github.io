@@ -42,7 +42,7 @@ function setLabels() {
         cols[i].textContent = timings[i] + " | " + tt[secParam][i + 1];
         if (hourParam > i) cols[i].style.color = "#2EB086";
     }
-    if ((hour == 17 && minute > 30) || (hour == 8 && minute < 30)) return;
+    if ((hour == 17 && minute > 30) || (hour == 8 && minute < 30) || day != ist.getDay()) return;
     if (hourParam != -1) {
         cols[hourParam].style.color = "#B8405E";
         cols[hourParam].textContent = "➙  " + cols[hourParam].textContent;
