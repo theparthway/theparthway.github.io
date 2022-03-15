@@ -5,7 +5,7 @@ const dayButtons = document.querySelector(".day");
 const cols = [];
 
 
-for (let i=0;i<9;i++) {
+for (let i=0;i<13;i++) {
     let cell = document.createElement("div");
     cols.push(cell);
     container.appendChild(cell);
@@ -14,6 +14,7 @@ for (let i=0;i<9;i++) {
 const timings = ['8:25-9:20', '9:25-10:20', '10:35-11:30', '11:35-12:30', '12:35-1:30', '1:35-2:30', '2:35-3:30', '3:35-4:30', '4:35-5:30'];
 const hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const meals = ["Breakfast", "Lunch", "Dinner", "Snacks"];
 
 var currentTime = new Date();
 
@@ -29,27 +30,45 @@ let hour = ist.getHours();
 let minute = ist.getMinutes();
 let day = ist.getDay();
 let section = 1;
+let isMess = false;
 
 function setLabels() {
-    if (day == 0) {
-        cols[5].textContent = "Sunday";
-        return;
-    }
-    let secParam = (day - 1) * 10 + section;
-    let hourParam = hours.indexOf(hour);
-    if (minute < 30 && hourParam != -1) hourParam -= 1;
-    for (let i=0;i<9;i++) {
-        cols[i].textContent = timings[i] + " | " + tt[secParam][i + 1];
-        if (hourParam > i) cols[i].style.color = "#2EB086";
-    }
-    if ((hour == 17 && minute > 30) || (hour == 8 && minute < 30)) return;
-    if (hourParam != -1 && day == ist.getDay()) {
-        cols[hourParam].style.color = "#B8405E";
-        cols[hourParam].textContent = "➙  " + cols[hourParam].textContent;
-    }
-    if (day != ist.getDay()) {
+    if (!isMess) {
+        if (day == 0) {
+            cols[5].textContent = "Sunday";
+            return;
+        }
+        let secParam = (day - 1) * 10 + section;
+        let hourParam = hours.indexOf(hour);
+        if (minute < 30 && hourParam != -1) hourParam -= 1;
         for (let i=0;i<9;i++) {
-            cols[i].style.color = "#313552";
+            cols[i].textContent = timings[i] + " | " + tt[secParam][i + 1];
+            if (hourParam > i) cols[i].style.color = "#2EB086";
+        }
+        if ((hour == 17 && minute > 30) || (hour == 8 && minute < 30)) return;
+        if (hourParam != -1 && day == ist.getDay()) {
+            cols[hourParam].style.color = "#B8405E";
+            cols[hourParam].textContent = "➙  " + cols[hourParam].textContent;
+        }
+        if (day != ist.getDay()) {
+            for (let i=0;i<9;i++) {
+                cols[i].style.color = "#313552";
+            }
+        }
+    } else {
+        for (let i=0;i<4;i++) {
+            cols[i].textContent = "";
+            cols[i].textContent += meals[i];
+            cols[i].textContent += "➙  ";
+            for (let j=0;j<12;j++) {
+                if (mess[(day - 1) * 10 + j][i]){
+                    cols[i].textContent += mess[(day - 1) * 10 + j][i];
+                    cols[i].textContent += ", ";
+                }
+            }
+        }
+        for (let i=4;i<9;i++) {
+            cols[i].textContent = "";
         }
     }
 }
@@ -80,10 +99,21 @@ for (let i=0;i<10;i++) {
         // info.textContent = tt[i][0] + " | " + (days[day]).toUpperCase();
         changeButton(section_buttons[section], button);
         section = i;
+        isMess = false;
         setLabels();
     });
-
 }
+
+let messButton = document.createElement("button");
+section_buttons.push(messButton);
+messButton.appendChild(document.createTextNode("MESS"));
+sectionButtons.appendChild(messButton);
+messButton.addEventListener('click', function() {
+    changeButton(section_buttons[section], messButton);
+    section = 10;
+    isMess = true;
+    setLabels();
+})
 
 const day_buttons = [];
 for (let i=1;i<7;i++) {
