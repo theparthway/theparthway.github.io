@@ -5,7 +5,7 @@ const dayButtons = document.querySelector(".day");
 const cols = [];
 
 
-for (let i=0;i<13;i++) {
+for (let i=0;i<9;i++) {
     let cell = document.createElement("div");
     cols.push(cell);
     container.appendChild(cell);
