@@ -56,6 +56,7 @@ function setLabels() {
             }
         }
     } else {
+        container.style.height = "95vh";
         for (let i=0;i<4;i++) {
             cols[i].textContent = "";
             cols[i].textContent += meals[i];
