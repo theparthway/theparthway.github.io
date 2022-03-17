@@ -1,16 +1,33 @@
-const density = "Ñ@#W$9876543210?!abc;:+=-,._        ";
+// const density = "Ñ@#W$9876543210?!abc;:+=-,._                ";
 
 let video;
 let asciiDiv;
+// brightness
+// size
+let brightSlider;
+let sizeSlider;
+let size = 64;
 
 function setup() {
   noCanvas();
   video = createCapture(VIDEO);
-  video.size(64, 48);
+  video.size(size, (size / 4) * 3);
+  brightSlider = createSlider(0, 100, 2, 1);
+  brightSlider.style('width', `${windowWidth - 10}px`);
   asciiDiv = createDiv();
 }
 
 function draw() {
+  let density = "Ñ@#W$9876543210?!abc;:+=-,._";
+  for (let i=0;i<brightSlider.value();i++) {
+    density += " ";
+  }
+  textSize(32);
+text('word', 10, 300);
+fill(0, 102, 153);
+text('word', 10, 600);
+fill(0, 102, 153, 51);
+text('word', 10, 900);
   video.loadPixels();
   let asciiImage = "";
   for (let j = 0; j < video.height; j++) {
