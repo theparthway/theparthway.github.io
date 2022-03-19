@@ -1,0 +1,29 @@
+body {
+    background-color: aliceblue;
+}
+
+.hero {
+    height: 90vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.about {
+    height: 70vh;
+    width: 100vw;
+}
+
+.know {
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    margin-top: 20vh;
+}
+
+.foot {
+    background-color: black;
+    color: white;
+}
