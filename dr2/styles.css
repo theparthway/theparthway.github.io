@@ -9,6 +9,10 @@ body {
     align-items: center;
 }
 
+.hero-text {
+    color: black;
+}
+
 .about {
     height: 70vh;
     width: 100vw;
@@ -20,10 +24,15 @@ body {
 }
 
 .container {
-    margin-top: 20vh;
+    margin-top: 10vh;
 }
 
-.foot {
+footer {
     background-color: black;
     color: white;
+    margin-top: 0vh;
+}
+
+.about-hero {
+    max-width: 30vw;
 }
