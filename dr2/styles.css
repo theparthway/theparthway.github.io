@@ -37,3 +37,13 @@ footer {
 .about-hero {
     max-width: 30vw;
 }
+
+p.h1 {
+    margin-bottom: 3vh;
+}
+
+@media (max-width: 480px) {
+    .team {
+        margin-top: 20vh;
+    }
+}
