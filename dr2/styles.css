@@ -42,8 +42,28 @@ p.h1 {
     margin-bottom: 3vh;
 }
 
-@media (max-width: 480px) {
-    .team {
-        margin-top: 20vh;
-    }
+.hero-img {
+    max-width: 20vw;
+}
+
+.team {
+    margin-top: 20vh;
+}
+
+nav {
+    background-color: white;
+    color: black;
+}
+
+.card {
+    border-radius: 20px;
+}
+
+.handshake {
+    max-width: 25vw;
+    max-height: 40vh;
+}
+
+.dr-logo {
+    max-width: 5vw;
 }
