@@ -69,10 +69,16 @@ nav {
 }
 
 .team {
-    margin-top: 10vw;
+    margin-top: 15rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 360px) {
+    .team {
+        margin-top: 300vw;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 480px) {
     .about-hero {
         max-width: 90vw;
     }
@@ -86,18 +92,6 @@ nav {
     }
 
     .team {
-        margin-top: 200vw;
-    }
-}
-
-@media (max-width: 360px) {
-    .team {
-        margin-top: 300vw;
-    }
-}
-
-@media (max-width: 768px) {
-    .team {
-        margin-top: 60vw;
+        margin-top: 50rem;
     }
 }
