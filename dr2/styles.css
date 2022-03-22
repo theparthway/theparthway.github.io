@@ -67,3 +67,17 @@ nav {
 .dr-logo {
     max-width: 5vw;
 }
+
+@media (max-width: 480px) {
+    .about-hero {
+        max-width: 90vw;
+    }
+
+    .handshake {
+        max-width: 90vw;
+    }
+
+    .team {
+        margin-top: 60vh;
+    }
+}
