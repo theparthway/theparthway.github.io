@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 const sectionButtons = document.querySelector(".section");
 const dayButtons = document.querySelector(".day");
+const yearButtons = document.querySelector(".year");
 
 const cols = [];
 
@@ -29,16 +30,33 @@ var ist = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);
 let hour = ist.getHours();
 let minute = ist.getMinutes();
 let day = ist.getDay();
+let tt;
+let year = 0;
 let section = 1;
 let isMess = false;
+let noOfSections = 10;
+const section_buttons = [];
 
 function setLabels() {
     if (!isMess) {
+        if (year == 0) {
+            tt = tt1;
+            if (section_buttons.length != 0) section_buttons[10].style.visibility = "hidden";
+        }
+        else { 
+            tt = tt2; noOfSections = 11; 
+            if (section_buttons.length != 0) section_buttons[10].style.visibility = "visible";
+        }
+        if (section_buttons.length != 0) {
+            for (let i=0;i<section_buttons.length;i++) {
+                section_buttons[i].textContent = tt[i][0];
+            }
+        }
         if (day == 0) {
             cols[5].textContent = "Sunday";
             return;
         }
-        let secParam = (day - 1) * 10 + section;
+        let secParam = (day - 1) * noOfSections + section;
         let hourParam = hours.indexOf(hour);
         if (minute < 30 && hourParam != -1) hourParam -= 1;
         for (let i=0;i<9;i++) {
@@ -62,8 +80,8 @@ function setLabels() {
             cols[i].textContent += meals[i];
             cols[i].textContent += "➙  ";
             for (let j=0;j<12;j++) {
-                if (mess[(day - 1) * 10 + j][i]){
-                    cols[i].textContent += mess[(day - 1) * 10 + j][i];
+                if (mess[(day - 1) * noOfSections + j][i]){
+                    cols[i].textContent += mess[(day - 1) * noOfSections + j][i];
                     cols[i].textContent += ", ";
                 }
             }
@@ -89,13 +107,44 @@ setLabels();
 
 // info.textContent = "A2 | " + (days[day]).toUpperCase();
 
-const section_buttons = [];
-for (let i=0;i<10;i++) {
+const year_buttons = [];
+let oneButton = document.createElement("button");
+year_buttons.push(oneButton);
+oneButton.appendChild(document.createTextNode("1st Year"));
+yearButtons.appendChild(oneButton);
+oneButton.addEventListener('click', function() {
+    changeButton(year_buttons[year], oneButton);
+    year = 0;
+    isMess = false;
+    setLabels();
+});
+let twoButton = document.createElement("button");
+year_buttons.push(twoButton);
+twoButton.appendChild(document.createTextNode("2nd Year"));
+yearButtons.appendChild(twoButton);
+twoButton.addEventListener('click', function() {
+    changeButton(year_buttons[year], twoButton);
+    year = 1;
+    isMess = false;
+    setLabels();
+});
+let messButton = document.createElement("button");
+year_buttons.push(messButton);
+messButton.appendChild(document.createTextNode("MESS"));
+yearButtons.appendChild(messButton);
+messButton.addEventListener('click', function() {
+    changeButton(year_buttons[year], messButton);
+    year = 2;
+    isMess = true;
+    setLabels();
+});
+
+for (let i=0;i<11;i++) {
     let button = document.createElement("button");
     section_buttons.push(button);
     button.appendChild(document.createTextNode(tt[i][0]));
     sectionButtons.appendChild(button);
-
+    
     button.addEventListener('click', function() {
         // info.textContent = tt[i][0] + " | " + (days[day]).toUpperCase();
         changeButton(section_buttons[section], button);
@@ -105,16 +154,7 @@ for (let i=0;i<10;i++) {
     });
 }
 
-let messButton = document.createElement("button");
-section_buttons.push(messButton);
-messButton.appendChild(document.createTextNode("MESS"));
-sectionButtons.appendChild(messButton);
-messButton.addEventListener('click', function() {
-    changeButton(section_buttons[section], messButton);
-    section = 10;
-    isMess = true;
-    setLabels();
-})
+setLabels();
 
 const day_buttons = [];
 for (let i=1;i<7;i++) {
@@ -122,7 +162,7 @@ for (let i=1;i<7;i++) {
     day_buttons.push(button);
     button.appendChild(document.createTextNode(days[i]));
     dayButtons.appendChild(button);
-
+    
     button.addEventListener('click', function() {
         changeButton(day_buttons[day - 1], button);
         day = i;
@@ -133,3 +173,4 @@ for (let i=1;i<7;i++) {
 
 changeButton(null, section_buttons[1]);
 changeButton(null, day_buttons[day - 1]);
+changeButton(null, year_buttons[year]);

@@ -28,7 +28,7 @@ body {
 .container {
     display: grid;
 
-    height: 75vh;
+    height: 80vh;
     justify-content: center;
     align-content: center;
     grid-auto-flow: column;
@@ -37,12 +37,16 @@ body {
     border-radius: 40px;
 }
 
-.container > div {
+.container>div {
     text-align: center;
     font-size: x-large;
     color: var(--one);
     font-weight: bold;
     padding: 0px 2px;
+}
+
+.year {
+    text-align: center;
 }
 
 .input {
@@ -90,17 +94,21 @@ button:hover {
         grid-auto-flow: row;
         gap: 5vh;
     }
-    .container > div {
+
+    .container>div {
         font-size: large;
     }
+
     .input {
         margin: 1vh 0vh;
     }
+
     button {
         padding: 1vh 2vw;
         font-size: small;
         margin: 0.5vw;
     }
+
     .day {
         margin: 0;
     }
