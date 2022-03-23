@@ -41,10 +41,12 @@ function setLabels() {
     if (!isMess) {
         if (year == 0) {
             tt = tt1;
+            noOfSections = 10;
             if (section_buttons.length != 0) section_buttons[10].style.visibility = "hidden";
         }
         else { 
-            tt = tt2; noOfSections = 11; 
+            tt = tt2; 
+            noOfSections = 11; 
             if (section_buttons.length != 0) section_buttons[10].style.visibility = "visible";
         }
         if (section_buttons.length != 0) {
