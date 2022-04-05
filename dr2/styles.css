@@ -19,6 +19,11 @@ body {
     color: black;
 }
 
+.hero {
+    margin-top: 30vh;
+    margin-bottom: 30vh;
+}
+
 .about {
     height: 70vh;
     width: 100vw;
