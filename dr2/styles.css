@@ -29,10 +29,11 @@ body {
     width: 100vw;
 }
 
-footer {
+#footer {
     background-color: black;
     color: white;
     margin-top: 0vh;
+    margin-bottom: 0vh;
 }
 
 .about-hero {
@@ -88,4 +89,3 @@ nav {
         margin-top: 50rem;
     }
 }
-
