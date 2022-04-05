@@ -56,15 +56,11 @@ nav {
     display: none;
 }
 
-.team {
-    margin-top: 15rem;
-}
-
-@media (max-width: 360px) {
+/* @media (max-width: 360px) {
     .team {
         margin-top: 300vw;
     }
-}
+} */
 
 @media (min-width: 360px) and (max-width: 480px) {
     .about-hero {
