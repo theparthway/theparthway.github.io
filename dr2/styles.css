@@ -3,7 +3,8 @@ body {
 }
 
 .container {
-    margin-top: 10vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }
 
 .hero-text {
