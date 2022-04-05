@@ -6,14 +6,6 @@ body {
     margin-top: 10vh;
 }
 
-.hero {
-    height: 90vh;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0;
-}
-
 .hero-text {
     color: black;
 }
@@ -49,10 +41,6 @@ p.h1 {
 nav {
     background-color: white;
     color: black;
-}
-
-.card {
-    border-radius: 20px;
 }
 
 .handshake {
