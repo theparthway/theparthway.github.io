@@ -16,12 +16,15 @@ body {
 }
 
 .hero-text {
-    color: black;
+    text-shadow: 2px 2px #ff0000;
 }
 
 .hero {
-    margin-top: 30vh;
-    margin-bottom: 30vh;
+    background: url("assets/hero-background.jpg");
+    background-repeat: no-repeat;
+    background-size: 2000px 2700px;
+    padding-top: 30vh;
+    padding-bottom: 30vh;
 }
 
 .about {

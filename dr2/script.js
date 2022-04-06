@@ -20,7 +20,7 @@ window.addEventListener("load", function () {
       method: "POST",
       body: data,
     }).then(() => {
-      alert("Success!");
+      alert("Our team will get back to you in 48 hours!");
     });
   });
 });
