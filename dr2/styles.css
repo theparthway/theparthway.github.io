@@ -67,10 +67,6 @@ nav {
     max-width: 5vw;
 }
 
-.spac {
-    display: none;
-}
-
 /* @media (max-width: 360px) {
     .team {
         margin-top: 300vw;
@@ -84,13 +80,5 @@ nav {
 
     .handshake {
         max-width: 90vw;
-    }
-
-    .spac {
-        display: block;
-    }
-
-    .team {
-        margin-top: 50rem;
     }
 }
