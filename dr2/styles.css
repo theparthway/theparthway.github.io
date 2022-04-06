@@ -64,7 +64,14 @@ nav {
 }
 
 .dr-logo {
-    max-width: 5vw;
+    max-width: 5rem;
+}
+
+.links {
+    padding-right: 25vh;
+    padding-top: 3vh;
+    margin-right: 0vh;
+    margin-top: 0vh;
 }
 
 /* @media (max-width: 360px) {
@@ -80,5 +87,17 @@ nav {
 
     .handshake {
         max-width: 90vw;
+    }
+
+    .links {
+        padding-right: 0vh;
+        padding-top: 0vh;
+        margin-right: 25vh;
+        margin-top: 3vh;
+    }
+
+    .contact_cards {
+        margin-left: 3vh;
+        margin-right: 3vh;
     }
 }
