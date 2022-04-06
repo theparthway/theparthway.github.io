@@ -2,13 +2,12 @@ const tb = document.querySelector(".mobileNo");
 const btn = document.querySelector(".getStartedButton");
 var phoneno = /^\d{10}$/;
 
-//btn.addEventListener("click", () => {
-//  if (tb.value.match(phoneno)) {
-//    window.location = "https://www.google.com";
-//  } else {
-//    alert("You need to enter your phone number");
-//  }
-//});
+function onlyNumberKey(evt) {
+  // Only ASCII character in that range allowed
+  var ASCIICode = evt.which ? evt.which : evt.keyCode;
+  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) return false;
+  return true;
+}
 
 window.addEventListener("load", function () {
   const form = document.getElementById("my-form");

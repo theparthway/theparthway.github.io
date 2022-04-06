@@ -76,9 +76,9 @@
             <form action="https://script.google.com/macros/s/AKfycbyPI61IDEMWHZ0OLTzXrF-VCZId9XmOvEn1jAgZueebsbsK13ZekDLzA-Js54fy4UCx/exec" method="POST" id="my-form">
             <div class="input-group mb-3">
               <input type="text" class="form-control mobileNo" placeholder="Mobile Number" aria-label="Mobile Number"
-                aria-describedby="basic-addon2" name="Mobile">
+                aria-describedby="basic-addon2" name="Mobile" onkeypress="return onlyNumberKey(event)">
               <div class="input-group-append">
-                <button class="btn btn-outline-secondary bg-dark" type="submit">Get Started</button>
+                <button class="btn btn-outline-secondary bg-dark getStartedButton" type="submit" disabled>Get Started</button>
               </div>
             </div>
           </form>
@@ -131,35 +131,29 @@
         <div class="contact_cards row justify-content-center d-flex justify-content-around">
           <div class="card col-sm-12 col-lg-3 my-2">
             <div class="card-body">
-              <h5 class="card-title">Bhuvana</h5>
+              <h5 class="card-title">Person 1</h5>
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.
               </p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
             </div>
           </div>
           <div class="card col-sm-12 col-lg-3 my-2">
             <div class="card-body">
-              <h5 class="card-title">Teja</h5>
+              <h5 class="card-title">Person 2</h5>
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.
               </p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
             </div>
           </div>
           <div class="card col-sm-12 col-lg-3 my-2">
             <div class="card-body">
-              <h5 class="card-title">Kanakam</h5>
+              <h5 class="card-title">Person 3</h5>
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.
               </p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
             </div>
           </div>
         </div>
@@ -214,7 +208,7 @@
         <footer class="footer text-center" id="footer">
             <div class="row py-5">
               <div class="col-lg-6 col-sm-4">
-                <img src="./assets/Logo_Light.png" alt="" class="dr-logo img-fluid"><br><br>
+                <img src="./assets/Logo_Light.png" alt="" class="dr-logo img-thumbnail"><br><br>
                 <a href="#" class="px-2"><i class="fa-brands fa-instagram fa-2x"></i></a>
                 <a href="#" class="px-2"><i class="fa-brands fa-facebook-f fa-2x"></i></a>
                 <a href="#" class="px-2"><i class="fa-brands fa-twitter fa-2x"></i></a>
