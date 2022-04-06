@@ -22,7 +22,7 @@ body {
 .hero {
     background: url("assets/hero-background.jpg");
     background-repeat: no-repeat;
-    background-size: 2000px 2700px;
+    background-size: 2200px 1000px;
     padding-top: 30vh;
     padding-bottom: 30vh;
 }

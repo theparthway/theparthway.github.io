@@ -1,9 +1,11 @@
-const tb = document.querySelector(".mobileNo");
+const tb = document.getElementById("mobileNo");
 const btn = document.querySelector(".getStartedButton");
 var phoneno = /^\d{10}$/;
 
 function onlyNumberKey(evt) {
   // Only ASCII character in that range allowed
+  if (tb.value.length == 10) btn.disabled = false;
+  else btn.disabled = true;
   var ASCIICode = evt.which ? evt.which : evt.keyCode;
   if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) return false;
   return true;
