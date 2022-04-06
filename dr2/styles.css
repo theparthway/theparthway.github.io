@@ -16,15 +16,15 @@ body {
 }
 
 .hero-text {
-    text-shadow: 2px 2px #ff0000;
+    text-shadow: 2px 2px white;
 }
 
 .hero {
     background: url("assets/hero-background.jpg");
     background-repeat: no-repeat;
-    background-size: 2200px 1000px;
-    padding-top: 30vh;
-    padding-bottom: 30vh;
+    background-size: 2200px 1500px;
+    padding-top: 20vh;
+    padding-bottom: 50vh;
 }
 
 .about {
