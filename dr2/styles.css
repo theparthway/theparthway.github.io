@@ -63,6 +63,9 @@ p.h1 {
 nav {
     background-color: white;
     color: black;
+}
+
+.hero > .navbar {
     margin-bottom: 20vh;
 }
 
