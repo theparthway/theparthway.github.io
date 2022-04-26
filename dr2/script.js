@@ -27,3 +27,19 @@ window.addEventListener("load", function () {
     });
   });
 });
+
+window.addEventListener("load", function () {
+  const form = document.getElementById("contact-form");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const action = e.target.action;
+    fetch(action, {
+      method: "POST",
+      body: data,
+    }).then(() => {
+      // alert("Our team will get back to you in 48 hours!");
+      window.location.href = "https://www.theparthway.com/dr2/success.html";
+    });
+  });
+});
