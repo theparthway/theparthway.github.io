@@ -23,8 +23,12 @@ body {
     background: url("assets/hero-background.jpg");
     background-repeat: no-repeat;
     background-size: 2200px 1500px;
-    padding-top: 20vh;
     padding-bottom: 50vh;
+}
+
+.nav-buttons> .home-nav-btn:hover {
+    background-color: black;
+    color: white;
 }
 
 .about {
@@ -59,6 +63,7 @@ p.h1 {
 nav {
     background-color: white;
     color: black;
+    margin-bottom: 20vh;
 }
 
 .handshake {

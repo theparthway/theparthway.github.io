@@ -57,28 +57,28 @@
     </nav>-->
     
     <!-- Image and text -->
-    <nav class="navbar navbar-dark bg-dark">
-      <!--<a class="navbar-brand text-white" href="index.html">
-        DR Rise
-      </a>-->
-      <div class="justify-content-center mx-auto">
-        <a href="index.html" class="btn btn-dark">Home</a>
-        <a href="about.html" class="btn btn-dark">Our Team</a>
-          <a href="contact.html" class="btn btn-dark">Contact</a>
-        </div>
-      </nav>
-
-      <div class="hero text-center text-light">
+    
+    <div class="hero text-center text-light fade-in-left">
+        <nav class="navbar navbar-dark bg-transparent">
+          <!--<a class="navbar-brand text-white" href="index.html">
+            DR Rise
+          </a>-->
+          <div class="nav-buttons justify-content-center mx-auto">
+            <a href="index.html" class="home-nav-btn btn btn-dark bg-transparent">Home</a>
+            <a href="about.html" class="home-nav-btn btn btn-dark bg-transparent">Our Team</a>
+              <a href="contact.html" class="home-nav-btn btn btn-dark bg-transparent">Contact</a>
+            </div>
+          </nav>
         <h1 class="display-5 fw-bold hero-text">Start your investment journey with us today!</h1>
         <div class="col-lg-6 mx-auto">
           <div class="py-5 px-3 d-grid gap-2 d-sm-flex justify-content-sm-center">
             <form action="https://script.google.com/macros/s/AKfycbyPI61IDEMWHZ0OLTzXrF-VCZId9XmOvEn1jAgZueebsbsK13ZekDLzA-Js54fy4UCx/exec" method="POST" id="my-form">
             <div class="input-group mb-3">
               <input type="text" class="form-control" placeholder="Mobile Number" aria-label="Mobile Number" id="mobileNo"
-                aria-describedby="basic-addon2" name="Mobile" onkeypress="return onlyNumberKey(event)">
+                aria-describedby="basic-addon2" name="Mobile" onkeydown="return onlyNumberKey(event)">
               <div class="input-group-append">
                 
-                <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_JNk49XaTgLIN8z" async> </script> <button>Get Started</button></form>
+                <button class="btn btn-outline-secondary bg-dark getStartedButton" type="submit" href="./getStarted.html" disabled>Get Started</button>
               </div>
             </div>
           </form>
@@ -160,8 +160,7 @@
       </div>
       
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-6">
+        <div class="justify-content-center">
         <p class="h1 text-center">FAQs</p>
         <div class="faqs">
           <details>
@@ -176,7 +175,6 @@
             <summary>What is the minimum time for investing?</summary>
             <p class="text">We require for you to invest in atleast 3 months to give you the most profitable returns.</p>
           </details>
-        </div>
         </div>
         </div>
       </div>
