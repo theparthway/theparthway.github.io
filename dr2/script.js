@@ -22,7 +22,7 @@ window.addEventListener("load", function () {
       method: "POST",
       body: data,
     }).then(() => {
-      alert("Our team will get back to you in 48 hours!");
+      // alert("Our team will get back to you in 48 hours!");
       window.location.href = "https://www.theparthway.com/dr2/getStarted.html";
     });
   });
