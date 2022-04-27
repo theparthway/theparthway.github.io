@@ -8,6 +8,7 @@ details {
 
 body {
     background-color: aliceblue;
+    -webkit-text-size-adjust: none;
 }
 
 .container {
