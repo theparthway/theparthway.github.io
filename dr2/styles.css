@@ -42,6 +42,10 @@ body {
     width: 100vw;
 }
 
+img {
+    height: auto;
+}
+
 #footer {
     background-color: black;
     color: white;
