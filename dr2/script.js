@@ -23,7 +23,7 @@ window.addEventListener("load", function () {
       body: data,
     }).then(() => {
       // alert("Our team will get back to you in 48 hours!");
-      window.location.href = "https://www.drrise.com/dr2/getStarted.html";
+      window.location.href = "https://www.drrise.com/getStarted.html";
     });
   });
 });
@@ -39,7 +39,7 @@ window.addEventListener("load", function () {
       body: data,
     }).then(() => {
       // alert("Our team will get back to you in 48 hours!");
-      window.location.href = "https://www.drrise.com/dr2/success.html";
+      window.location.href = "https://www.drrise.com/success.html";
     });
   });
 });
