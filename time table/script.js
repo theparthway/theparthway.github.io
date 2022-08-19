@@ -6,14 +6,14 @@ const yearButtons = document.querySelector(".year");
 const cols = [];
 
 
-for (let i=0;i<9;i++) {
+for (let i=0;i<10;i++) {
     let cell = document.createElement("div");
     cols.push(cell);
     container.appendChild(cell);
 }
 
-const timings = ['8:25-9:20', '9:25-10:20', '10:35-11:30', '11:35-12:30', '12:35-1:30', '1:35-2:30', '2:35-3:30', '3:35-4:30', '4:35-5:30'];
-const hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+const timings = ['8:25-9:20', '9:25-10:20', '10:35-11:30', '11:35-12:30', '12:35-1:30', '1:35-2:30', '2:35-3:30', '3:35-4:30', '4:35-5:30', '5:35-6:30'];
+const hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const meals = ["Breakfast", "Lunch", "Dinner", "Snacks"];
 
@@ -34,15 +34,15 @@ let tt;
 let year = 0;
 let section = 1;
 let isMess = false;
-let noOfSections = 10;
+let noOfSections = 14;
 const section_buttons = [];
 
 function setLabels() {
     if (!isMess) {
         if (year == 0) {
             tt = tt1;
-            noOfSections = 10;
-            if (section_buttons.length != 0) section_buttons[10].style.visibility = "hidden";
+            noOfSections = 14;
+            if (section_buttons.length != 0) section_buttons[13].style.visibility = "hidden";
         }
         else { 
             tt = tt2; 
@@ -61,11 +61,11 @@ function setLabels() {
         let secParam = (day - 1) * noOfSections + section;
         let hourParam = hours.indexOf(hour);
         if (minute < 30 && hourParam != -1) hourParam -= 1;
-        for (let i=0;i<9;i++) {
+        for (let i=0;i<10;i++) {
             cols[i].textContent = timings[i] + " | " + tt[secParam][i + 1];
             if (hourParam > i) cols[i].style.color = "#2EB086";
         }
-        if ((hour == 17 && minute > 30) || (hour == 8 && minute < 30)) return;
+        if ((hour == 18 && minute > 30) || (hour == 8 && minute < 30)) return;
         if (hourParam != -1 && day == ist.getDay()) {
             cols[hourParam].style.color = "#B8405E";
             cols[hourParam].textContent = "➙  " + cols[hourParam].textContent;
@@ -112,7 +112,7 @@ setLabels();
 const year_buttons = [];
 let oneButton = document.createElement("button");
 year_buttons.push(oneButton);
-oneButton.appendChild(document.createTextNode("1st Year"));
+oneButton.appendChild(document.createTextNode("2nd Year"));
 yearButtons.appendChild(oneButton);
 oneButton.addEventListener('click', function() {
     changeButton(year_buttons[year], oneButton);
@@ -120,28 +120,28 @@ oneButton.addEventListener('click', function() {
     isMess = false;
     setLabels();
 });
-let twoButton = document.createElement("button");
-year_buttons.push(twoButton);
-twoButton.appendChild(document.createTextNode("2nd Year"));
-yearButtons.appendChild(twoButton);
-twoButton.addEventListener('click', function() {
-    changeButton(year_buttons[year], twoButton);
-    year = 1;
-    isMess = false;
-    setLabels();
-});
-let messButton = document.createElement("button");
-year_buttons.push(messButton);
-messButton.appendChild(document.createTextNode("MESS"));
-yearButtons.appendChild(messButton);
-messButton.addEventListener('click', function() {
-    changeButton(year_buttons[year], messButton);
-    year = 2;
-    isMess = true;
-    setLabels();
-});
+// let twoButton = document.createElement("button");
+// year_buttons.push(twoButton);
+// twoButton.appendChild(document.createTextNode("2nd Year"));
+// yearButtons.appendChild(twoButton);
+// twoButton.addEventListener('click', function() {
+//     changeButton(year_buttons[year], twoButton);
+//     year = 1;
+//     isMess = false;
+//     setLabels();
+// });
+// let messButton = document.createElement("button");
+// year_buttons.push(messButton);
+// messButton.appendChild(document.createTextNode("MESS"));
+// yearButtons.appendChild(messButton);
+// messButton.addEventListener('click', function() {
+//     changeButton(year_buttons[year], messButton);
+//     year = 2;
+//     isMess = true;
+//     setLabels();
+// });
 
-for (let i=0;i<11;i++) {
+for (let i=0;i<14;i++) {
     let button = document.createElement("button");
     section_buttons.push(button);
     button.appendChild(document.createTextNode(tt[i][0]));
