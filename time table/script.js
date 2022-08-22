@@ -32,7 +32,7 @@ let minute = ist.getMinutes();
 let day = ist.getDay();
 let tt;
 let year = 0;
-let section = 2;
+let section = 1;
 let isMess = false;
 let noOfSections = 14;
 const section_buttons = [];
