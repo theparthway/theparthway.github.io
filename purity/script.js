@@ -42,7 +42,7 @@ function showQuestion(question) {
   questionElement.innerText = question;
 
   ybutton = document.createElement('button');
-  ybutton.innerText = "YES";
+  ybutton.innerText = "Yes";
   ybutton.classList.add('btn');
   ybutton.addEventListener('click', () => {
       currentQuestionIndex++;
@@ -51,7 +51,7 @@ function showQuestion(question) {
     answerButtonsElement.appendChild(ybutton);
     
     nbutton = document.createElement('button');
-    nbutton.innerText = "NO";
+    nbutton.innerText = "No";
     nbutton.classList.add('btn');
     nbutton.addEventListener('click', () => {
     score++;
