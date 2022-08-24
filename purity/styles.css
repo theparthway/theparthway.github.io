@@ -43,9 +43,10 @@
 
   #score {
     background-color: green;
-    width: 20px;
+    width: 30px;
     color: white;
     text-align: center;
+    border-radius: 5px;
   }
   
   .btn-grid {

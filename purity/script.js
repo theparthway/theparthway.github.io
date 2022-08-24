@@ -10,6 +10,7 @@ const header = document.querySelector(".header");
 
 virginCheckbox.checked = false;
 
+let isVirgin = false;
 let score = 0;
 let questions, currentQuestionIndex;
 let nbutton, ybutton;
@@ -21,7 +22,10 @@ function startGame() {
   virginCheckbox.classList.add('hide');
   virginLabel.classList.add('hide');
   header.classList.add('hide');
-  if (virginCheckbox.checked) questions = virgin;
+  if (virginCheckbox.checked) {
+    questions = virgin;
+    isVirgin = true;
+  }
   else questions = nonvirgin;
 //   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
@@ -32,9 +36,13 @@ function startGame() {
 function setNextQuestion() {
   resetState()
   if (currentQuestionIndex < questions.length) showQuestion(questions[currentQuestionIndex]);
-  else {showQuestion("Quiz over, well done!");
-  ybutton.classList.add('hide');
-  nbutton.classList.add('hide'); }
+  else {
+    let finalScore = isVirgin ? Math.round((score / 65) * 100) : score;
+    let finalLabel = isVirgin ? "Virgin" : "Final";
+    showQuestion(`Thank you for taking the quiz!\n${finalLabel} score: ${finalScore}`);
+    ybutton.classList.add('hide');
+    nbutton.classList.add('hide'); 
+  }
   console.log(currentQuestionIndex);
 }
 
