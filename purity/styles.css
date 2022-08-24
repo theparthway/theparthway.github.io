@@ -51,7 +51,7 @@
   .btn-grid {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    gap: 200px;
+    gap: 100px;
     margin: 20px 0;
     justify-content: center;
   }
