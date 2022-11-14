@@ -33,9 +33,9 @@ image.addEventListener('click', function () {
     cookies.textContent = (parseInt(cookies.textContent) + clickValue);
 })
 
-buttons.forEach(function (btn) {
+buttons.forEach(function (btn, i) {
     btn.addEventListener('click', function () {
-        bought(btn);
+        if (parseInt(cookies.innerHTML) > parseInt(costs[i].innerHTML)) bought(btn);
     })
 })
 
