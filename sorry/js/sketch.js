@@ -18,7 +18,7 @@ function draw() {
     textAlign(CENTER, CENTER);
     text('Shoot me!', width / 2, 30);
     textSize(16);
-    text('hit spacebar to shoot', width / 2, 60);
+    text('arrow keys to move, spacebar to shoot', width / 2, 60);
     textSize(160);
     textAlign(CENTER, CENTER);
     text(`${score}`, width / 2, height / 2);
