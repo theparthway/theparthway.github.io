@@ -4,7 +4,7 @@ function Pot(x, y) {
     this.w = 90;
     this.h = 120;
     this.toDelete = false;
-    let img = loadImage('pot.jpg');
+    let img = loadImage('assets/pot.jpg');
 
     this.move = function() {
         this.x += random(-1, 1);
