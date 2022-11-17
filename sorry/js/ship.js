@@ -1,7 +1,7 @@
 function Ship() {
     this.x = width / 2;
     this.dir = 0;
-    let img = loadImage('assets/ship.jpg');
+    let img = loadImage('assets/ship.PNG');
 
     this.show = function() {
         imageMode(CENTER);
