@@ -14,6 +14,7 @@ function setup() {
     }
     buttons[0] = createButton('Default View');
     buttons[1] = createButton('Dots View');
+    buttons[1].style('color', 'blue');
     buttons[2] = createButton('Spike View');
     buttons[0].position(width / 2 - 100, 40);
     buttons[1].position(width / 2, 40);
@@ -67,6 +68,21 @@ function swap(arr, a, b) {
     arr[b] = temp;
 }
 
-function defa() {mode = 0;}
-function dots() {mode = 1;}
-function spike() {mode = 2;}
+function defa() {
+    mode = 0;
+    buttons[0].style('color', 'blue');
+    buttons[1].style('color', 'black');
+    buttons[2].style('color', 'black');
+}
+function dots() {
+    mode = 1;
+    buttons[0].style('color', 'black');
+    buttons[1].style('color', 'blue');
+    buttons[2].style('color', 'black');
+}
+function spike() {
+    mode = 2;
+    buttons[0].style('color', 'black');
+    buttons[1].style('color', 'black');
+    buttons[2].style('color', 'blue');
+}
