@@ -40,7 +40,7 @@ function draw() {
         let y = random(r);
         point(x, y);
         
-        if (dist(x, y, width / 2, height / 2) <= r / 2) {
+        if (dist(x, y, width / 2, height / 2) < r / 2) {
             cir++;
         }
         total++;
