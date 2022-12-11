@@ -10,50 +10,47 @@ let grid;
 let cols;
 let rows;
 let resolution = 10;
-let time = 100;
-let timeSlider;
 
 function setup() {
-	createCanvas(windowWidth * 0.99, windowHeight * 0.9);
-	console.log(width, height);
+	createCanvas(windowWidth - 20, windowHeight - 190);
 	cols = floor(width / resolution);
-	rows = floor(height / resolution) - 3;
+	rows = floor(height / resolution);
 
-	timeSlider = createSlider(10, 2000, time);
-	timeSlider.position(width * 0.4, height);
 	grid = make2DArray(cols, rows);
 	for (let i = 0; i < cols; i++) {
 		for (let j = 0; j < rows; j++) {
 		grid[i][j] = floor(random(2));
 		}
 	}
+	setInterval(next, 150);
 }
+let color = (255);
 
-setInterval(function draw() {
-	background(255);
+function draw() {
+};
 
-	time = timeSlider.value();
-	text("Interval: " + time + "ms", width * 0.4, height * 0.98);
-
+function next() {
+	background(0);
+	
 	for (let i = 0; i < cols; i++) {
 		for (let j = 0; j < rows; j++) {
 		let x = i * resolution;
 		let y = j * resolution;
 		if (grid[i][j] == 1) {
 			fill(0);
-			stroke(255);
+			stroke(color);
 			rect(x, y, resolution - 1, resolution - 1);
 		}
 		}
 	}
-
+	
 	let next = make2DArray(cols, rows);
-
+	
 	for (let i = 0; i < cols; i++) {
 		for (let j = 0; j < rows; j++) {
 			let state = grid[i][j];
 			let neighbors = countNeighbors(grid, i, j);
-
+	
 			if (state == 0 && neighbors == 3) {
 				next[i][j] = 1;
 			} else if (state == 1 && (neighbors < 2 || neighbors > 3)) {
@@ -63,10 +60,10 @@ setInterval(function draw() {
 			}
 		}
 	}
-
+	
 	grid = next;
-}, time);
 
+}
 
 function countNeighbors(grid, x, y) {
 	let sum = 0;
@@ -79,4 +76,8 @@ function countNeighbors(grid, x, y) {
 	}
 	sum -= grid[x][y];
 	return sum;
+}
+
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
 }
